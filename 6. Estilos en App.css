@@ -1,0 +1,32 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+.product-list,
+.cart {
+  flex: 1;
+  padding: 20px;
+}
+
+.product-list {
+  border-right: 1px solid #ddd;
+}
+
+.product-item,
+.cart-item {
+  padding: 10px;
+  margin: 5px 0;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.product-item:hover {
+  background-color: #ffe6f2;
+}
+
+.cart-item:hover {
+  background-color: #ffcccc;
+}
