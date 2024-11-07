@@ -35,7 +35,9 @@ function App() {
       const existingItem = prevItems.find((item) => item.id === product.id);
       if (existingItem) {
         return prevItems.map((item) =>
-          item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
         );
       }
       return [...prevItems, { ...product, quantity: 1 }];
@@ -54,10 +56,21 @@ function App() {
     });
   };
 
+  const calculateTotal = () => {
+    return cartItems.reduce(
+      (total, item) => total + item.unitPrice * item.quantity,
+      0
+    );
+  };
+
   return (
     <div className="app-container">
       <ProductList products={groceries} addToCart={addToCart} />
-      <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
+      <Cart
+        cartItems={cartItems}
+        removeFromCart={removeFromCart}
+        total={calculateTotal()}
+      />
     </div>
   );
 }
